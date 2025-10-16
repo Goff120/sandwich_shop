@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
 
         child: Column(
 

@@ -12,15 +12,23 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
     title: 'Sandwich Shop App',
-    home: Scaffold(
-      appBar: AppBar(title: const Text('Sandwich Counter')),
-      body: const Center(
-        child: OrderItemDisplay(4, 'Footlong'),
+  home: Scaffold(
+    appBar: AppBar(title: const Text('Sandwich Counter')),
+    body: const Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          OrderItemDisplay(4, 'Footlong'),
+          OrderItemDisplay(5, 'BLT'),
+          OrderItemDisplay(3, 'Chicken'),
+        ],
       ),
     ),
+  )
   );
+  }
 }
-}
+
 
 class OrderItemDisplay extends StatelessWidget {
   final String itemType;
@@ -30,7 +38,17 @@ class OrderItemDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      color: const Color.fromARGB(255, 194, 83, 209),
+      width: 300.0,
+      height: 100.0,
+      alignment: Alignment.center, // if text is too big, it gets cut off
+      child: Text(
+        '$quantity $itemType sandwich(es): ${'🥪' * quantity}',
+        style: const TextStyle(fontSize: 16.0),
+      ),
+    );
   }
 }
 

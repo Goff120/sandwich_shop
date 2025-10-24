@@ -14,18 +14,70 @@ class App extends StatelessWidget {
     title: 'Sandwich Shop App',
   home: Scaffold(
     appBar: AppBar(title: const Text('Sandwich Counter')),
-    body: const Center(
+    body: Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          OrderItemDisplay(4, 'Footlong'),
-          OrderItemDisplay(5, 'BLT'),
-          OrderItemDisplay(3, 'Chicken'),
-        ],
+          Expanded(
+            child: ListView(
+              children: const [
+                OrderItemDisplay(4, 'Footlong'),
+                OrderItemDisplay(5, 'BLT'),
+                OrderItemDisplay(3, 'Chicken'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+              ]
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: const [
+                OrderItemDisplay(2, 'Veggie Delight'),
+                OrderItemDisplay(6, 'Turkey'),
+                OrderItemDisplay(1, 'Ham'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: const [
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+                OrderItemDisplay(3, 'Meatball'),
+                OrderItemDisplay(7, 'Tuna'),
+                OrderItemDisplay(2, 'Club'),
+              ],
+            ),
+          ),
+            ]
+          ),
       ),
     ),
-  )
   );
+
   }
 }
 
@@ -40,13 +92,17 @@ class OrderItemDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(10.0),
-      color: const Color.fromARGB(255, 194, 83, 209),
-      width: 300.0,
+      color: const Color.fromARGB(255, 10, 49, 134),
+      width: 350.0,
       height: 100.0,
       alignment: Alignment.center, // if text is too big, it gets cut off
       child: Text(
         '$quantity $itemType sandwich(es): ${'🥪' * quantity}',
-        style: const TextStyle(fontSize: 16.0),
+        style: const TextStyle(
+          fontSize: 20.0,
+          color: Color.fromARGB(255, 24, 201, 127),
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
